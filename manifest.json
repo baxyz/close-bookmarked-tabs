@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Close Bookmarked Tabs",
+  "version": "1.0",
+  "description": "Adds an option to close all tabs that are bookmarked.",
+  "icons": {
+    "48": "icons/icon_48.png",
+    "96": "icons/icon_96.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "bookmarks",
+    "contextMenus"
+  ],
+  "default_locale": "en"
+}

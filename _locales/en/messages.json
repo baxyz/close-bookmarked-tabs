@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "Close Bookmarked Tabs",
+    "description": "Name of the extension"
+  },
+  "extensionDescription": {
+    "message": "Adds an option to close all tabs that are bookmarked.",
+    "description": "Description of the extension"
+  },
+  "closeBookmarkedTabs": {
+    "message": "Close bookmarked tabs",
+    "description": "Menu item to close tabs that are in bookmarks"
+  }
+}

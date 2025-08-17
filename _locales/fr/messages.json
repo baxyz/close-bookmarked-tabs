@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "Fermer les onglets en favoris",
+    "description": "Nom de l'extension"
+  },
+  "extensionDescription": {
+    "message": "Ajoute une option pour fermer tous les onglets qui sont dans les favoris.",
+    "description": "Description de l'extension"
+  },
+  "closeBookmarkedTabs": {
+    "message": "Fermer les onglets qui sont dans les favoris",
+    "description": "Option de menu pour fermer les onglets qui sont dans les favoris"
+  }
+}
