@@ -65,7 +65,7 @@ zip -r close-bookmarked-tabs.zip manifest.json background.js utils/ _locales/ ic
 
 ## License
 
-MIT
+AGPL-3.0
 
 ## Contributing
 
