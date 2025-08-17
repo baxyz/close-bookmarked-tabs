@@ -9,6 +9,11 @@ A Firefox extension that closes all tabs that are present in your bookmarks.
 - Smart bookmark caching for better performance
 - Multi-language support (EN, FR)
 
+## Description
+
+**Description :**
+Streamline your browsing experience with this efficient Firefox extension that instantly closes all tabs already saved in your bookmarks. Perfect for users who bookmark pages for later reading but forget to close them, leading to cluttered tab bars and slower browser performance. Simply right-click any tab and select "Close bookmarked tabs" from the context menu to automatically identify and close all tabs that are already safely stored in your bookmarks. Features smart caching for optimal performance and supports multiple languages including English and French.
+
 ## Installation
 
 ### For Development
@@ -55,7 +60,7 @@ close-bookmarked-tabs/
 
 ```bash
 # Create distribution zip
-zip -r close-bookmarked-tabs.zip manifest.json background.js utils _locales
+zip -r close-bookmarked-tabs.zip manifest.json background.js utils/ _locales/ icons/ --exclude="*.zip"
 ```
 
 ## License
