@@ -1,1 +1,38 @@
-/.history
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Local History for Visual Studio Code
+.history/
+
+# OS
+.DS_Store
+._*
+Thumbs.db
+
+# Node
+node_modules/
+*.log
+
+# Firefox Extension Development
+web-ext-artifacts/
+*.zip
+*.xpi
+
+# Build output
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Editor files
+*.swp
+*.swo
+*~
+*.bak
