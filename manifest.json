@@ -10,12 +10,13 @@
   "background": {
     "scripts": [
       "background.js"
-    ]
+    ],
+    "type": "module"
   },
   "permissions": [
     "tabs",
     "bookmarks",
-    "contextMenus"
+    "menus"
   ],
   "default_locale": "en"
 }

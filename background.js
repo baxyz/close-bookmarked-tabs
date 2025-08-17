@@ -1,29 +1,54 @@
+import { closeBookmarkedTabs, invalidateCache, hasBookmarkedTabs } from './utils/bookmarks.js';
+
 // Create context menu item under "Close Multiple Tabs"
-browser.contextMenus.create({
+browser.menus.create({
   id: "close-bookmarked-tabs",
   title: browser.i18n.getMessage("closeBookmarkedTabs"),
   contexts: ["tab"],
-  parentId: "close-multiple-tabs"
+  icons: {
+    "16": "icons/icon-16.png"
+  },
+  enabled: false
+});
+
+// Update menu item state based on bookmarked tabs
+async function updateMenuState() {
+  const hasBookmarks = await hasBookmarkedTabs();
+  browser.menus.update("close-bookmarked-tabs", {
+    enabled: hasBookmarks
+  });
+  browser.menus.refresh();
+}
+
+// Listen for tab updates to check menu state
+browser.tabs.onUpdated.addListener(updateMenuState);
+browser.tabs.onRemoved.addListener(updateMenuState);
+browser.tabs.onCreated.addListener(updateMenuState);
+
+// Listen for bookmark changes
+browser.bookmarks.onCreated.addListener(() => {
+  invalidateCache();
+  updateMenuState();
+});
+browser.bookmarks.onRemoved.addListener(() => {
+  invalidateCache();
+  updateMenuState();
+});
+browser.bookmarks.onChanged.addListener(() => {
+  invalidateCache();
+  updateMenuState();
+});
+browser.bookmarks.onMoved.addListener(() => {
+  invalidateCache();
+  updateMenuState();
 });
 
 // Listen for menu click
-browser.contextMenus.onClicked.addListener(async (info, tab) => {
+browser.menus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "close-bookmarked-tabs") {
-    const bookmarks = await browser.bookmarks.getTree();
-    const urls = [];
-    function extractUrls(nodes) {
-      for (const node of nodes) {
-        if (node.url) urls.push(node.url);
-        if (node.children) extractUrls(node.children);
-      }
-    }
-    extractUrls(bookmarks);
-
-    const tabs = await browser.tabs.query({});
-    for (const t of tabs) {
-      if (urls.includes(t.url)) {
-        browser.tabs.remove(t.id);
-      }
-    }
+    closeBookmarkedTabs();
   }
 });
+
+console.log("Close Bookmarked Tabs extension loaded.");
+console.log("Context menu item created:", a);
