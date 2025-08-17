@@ -1,14 +1,20 @@
 import { closeBookmarkedTabs, invalidateCache, hasBookmarkedTabs } from './utils/bookmarks.js';
 import { MENU_ITEM_ID, createContextMenuItem, updateMenuState } from './utils/menu.js';
 
-// Initialize context menu
-createContextMenuItem();
+// Initialize context menu and check initial state
+async function initialize() {
+  await createContextMenuItem();
+  await checkMenuState();
+}
 
 // Check initial state
 async function checkMenuState() {
   const hasBookmarks = await hasBookmarkedTabs();
   await updateMenuState(hasBookmarks);
 }
+
+// Start initialization
+initialize();
 
 // Listen for tab updates to check menu state
 ['onUpdated', 'onRemoved', 'onCreated'].forEach(event => {
@@ -25,9 +31,8 @@ async function checkMenuState() {
 
 // Listen for menu click
 browser.menus.onClicked.addListener((info, tab) => {
+  console.log("Menu clicked:", info.menuItemId);
   if (info.menuItemId === MENU_ITEM_ID) {
     closeBookmarkedTabs();
   }
 });
-
-console.log("Close Bookmarked Tabs extension loaded.");
