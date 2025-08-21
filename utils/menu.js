@@ -23,12 +23,27 @@
 export const MENU_ITEM_ID = 'close-bookmarked-tabs';
 
 /**
+ * Get dynamic menu label based on number of bookmarked tabs
+ * @param {number} count - Number of bookmarked tabs
+ * @returns {string} Localized menu label
+ */
+function getMenuLabel(count) {
+  if (count === 0) {
+    return browser.i18n.getMessage("menuNoTabs");
+  } else if (count === 1) {
+    return browser.i18n.getMessage("menuSingleTab");
+  } else {
+    return browser.i18n.getMessage("menuMultipleTabs", [count.toString()]);
+  }
+}
+
+/**
  * Create the context menu item for closing bookmarked tabs
  */
 export async function createContextMenuItem() {
   return browser.menus.create({
     id: MENU_ITEM_ID,
-    title: browser.i18n.getMessage("closeBookmarkedTabs"),
+    title: getMenuLabel(0),
     contexts: ["tab"],
     icons: {
       "16": "icons/empty_16.png",
@@ -38,12 +53,13 @@ export async function createContextMenuItem() {
 }
 
 /**
- * Update menu item state based on whether there are bookmarked tabs
- * @param {boolean} hasBookmarks - Whether there are bookmarked tabs
+ * Update menu item state based on number of bookmarked tabs
+ * @param {number} count - Number of bookmarked tabs
  */
-export async function updateMenuState(hasBookmarks) {
+export async function updateMenuState(count) {
   await browser.menus.update(MENU_ITEM_ID, {
-    enabled: hasBookmarks
+    title: getMenuLabel(count),
+    enabled: count > 0
   });
   await browser.menus.refresh();
 }

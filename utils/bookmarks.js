@@ -76,6 +76,16 @@ export async function hasBookmarkedTabs() {
 }
 
 /**
+ * Count how many open tabs are bookmarked
+ * @returns {Promise<number>}
+ */
+export async function countBookmarkedTabs() {
+  const bookmarkUrls = await getCachedUrls();
+  const tabs = await browser.tabs.query({});
+  return tabs.filter(tab => bookmarkUrls.includes(tab.url)).length;
+}
+
+/**
  * Extract URLs from bookmark tree
  * @private
  */

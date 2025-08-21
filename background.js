@@ -16,7 +16,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { closeBookmarkedTabs, invalidateCache, hasBookmarkedTabs } from './utils/bookmarks.js';
+import { closeBookmarkedTabs, invalidateCache, countBookmarkedTabs } from './utils/bookmarks.js';
 import { MENU_ITEM_ID, createContextMenuItem, updateMenuState } from './utils/menu.js';
 
 // Initialize context menu and check initial state
@@ -27,8 +27,8 @@ async function initialize() {
 
 // Check initial state
 async function checkMenuState() {
-  const hasBookmarks = await hasBookmarkedTabs();
-  await updateMenuState(hasBookmarks);
+  const count = await countBookmarkedTabs();
+  await updateMenuState(count);
 }
 
 // Start initialization

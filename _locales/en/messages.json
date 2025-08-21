@@ -7,8 +7,16 @@
     "message": "Adds an option to close all tabs that are bookmarked.",
     "description": "Description of the extension"
   },
-  "closeBookmarkedTabs": {
-    "message": "Close bookmarked tabs",
-    "description": "Menu item to close tabs that are in bookmarks"
+  "menuNoTabs": {
+    "message": "No bookmarked tabs",
+    "description": "Menu label when no tabs are bookmarked"
+  },
+  "menuSingleTab": {
+    "message": "Close 1 bookmarked tab",
+    "description": "Menu label when 1 tab is bookmarked"
+  },
+  "menuMultipleTabs": {
+    "message": "Close $1 bookmarked tabs",
+    "description": "Menu label when multiple tabs are bookmarked"
   }
 }

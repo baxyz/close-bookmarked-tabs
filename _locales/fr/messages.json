@@ -7,8 +7,16 @@
     "message": "Ajoute une option pour fermer tous les onglets qui sont dans les favoris.",
     "description": "Description de l'extension"
   },
-  "closeBookmarkedTabs": {
-    "message": "Fermer les onglets qui sont dans les favoris",
-    "description": "Option de menu pour fermer les onglets qui sont dans les favoris"
+  "menuNoTabs": {
+    "message": "Aucun onglet en favoris",
+    "description": "Label du menu quand aucun onglet n'est en favoris"
+  },
+  "menuSingleTab": {
+    "message": "Fermer 1 onglet en favoris",
+    "description": "Label du menu quand 1 onglet est en favoris"
+  },
+  "menuMultipleTabs": {
+    "message": "Fermer $1 onglets en favoris",
+    "description": "Label du menu quand plusieurs onglets sont en favoris"
   }
 }
