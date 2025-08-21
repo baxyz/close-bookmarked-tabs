@@ -48,7 +48,7 @@ async function getCachedUrls() {
 
 /**
  * Get all URLs from bookmarks and close matching tabs
- * @returns {Promise<void>}
+ * @returns {Promise<number>} Number of tabs closed
  */
 export async function closeBookmarkedTabs() {
   // Get bookmarked URLs from cache
@@ -62,7 +62,21 @@ export async function closeBookmarkedTabs() {
 
   if (tabIdsToClose.length > 0) {
     await browser.tabs.remove(tabIdsToClose);
+
+    // Show notification
+    const message = tabIdsToClose.length === 1
+      ? browser.i18n.getMessage('notificationSingle', [tabIdsToClose.length.toString()])
+      : browser.i18n.getMessage('notificationMultiple', [tabIdsToClose.length.toString()]);
+
+    await browser.notifications.create({
+      type: 'basic',
+      // iconUrl: 'icons/icon_48.png',
+      title: browser.i18n.getMessage('notificationTitle'),
+      message: message
+    });
   }
+
+  return tabIdsToClose.length;
 }
 
 /**

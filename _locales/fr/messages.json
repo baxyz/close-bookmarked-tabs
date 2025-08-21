@@ -18,5 +18,17 @@
   "menuMultipleTabs": {
     "message": "Fermer $1 onglets en favoris",
     "description": "Label du menu quand plusieurs onglets sont en favoris"
+  },
+  "notificationTitle": {
+    "message": "Fermer les onglets en favoris",
+    "description": "Titre de la notification"
+  },
+  "notificationSingle": {
+    "message": "$1 onglet en favoris fermé",
+    "description": "Message de notification pour un seul onglet fermé"
+  },
+  "notificationMultiple": {
+    "message": "$1 onglets en favoris fermés",
+    "description": "Message de notification pour plusieurs onglets fermés"
   }
 }

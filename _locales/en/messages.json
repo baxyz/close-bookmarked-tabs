@@ -18,5 +18,17 @@
   "menuMultipleTabs": {
     "message": "Close $1 bookmarked tabs",
     "description": "Menu label when multiple tabs are bookmarked"
+  },
+  "notificationTitle": {
+    "message": "Close Bookmarked Tabs",
+    "description": "Title of the notification"
+  },
+  "notificationSingle": {
+    "message": "$1 bookmarked tab closed",
+    "description": "Notification message for single tab closed"
+  },
+  "notificationMultiple": {
+    "message": "$1 bookmarked tabs closed",
+    "description": "Notification message for multiple tabs closed"
   }
 }

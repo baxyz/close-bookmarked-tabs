@@ -16,7 +16,8 @@
   "permissions": [
     "tabs",
     "bookmarks",
-    "menus"
+    "menus",
+    "notifications"
   ],
   "default_locale": "en"
 }
